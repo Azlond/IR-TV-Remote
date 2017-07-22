@@ -1,0 +1,11 @@
+{
+  "name": "IR-Remote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Sintho",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
