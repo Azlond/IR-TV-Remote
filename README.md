@@ -23,4 +23,4 @@ Tutorial
 
 Hardware setup
 --------------
-[breadboard image](https://raw.githubusercontent.com/Azlond/IR-TV-Remote/master/breadboard.png)
+![breadboard image](https://raw.githubusercontent.com/Azlond/IR-TV-Remote/master/breadboard.png)
