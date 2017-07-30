@@ -1,4 +1,5 @@
-var hashmap = {
+/* USER VARIABLES */
+var hashmap = {							// mapping IDs to key names. Not necessarily needed, but for better readability
 	"remotePowerButton": "KEY_POWER",
 	"remoteSourceButton": "KEY_SOURCE",
 	"remoteMuteButton": "KEY_MUTE",
@@ -23,8 +24,14 @@ var hashmap = {
 	"remoteOKButton": "KEY_OK"
 }
 
+var hostname = "";				//hostname or IP of the server
+var webserverPort = 3000;		//port configured in server.js
+var svgID = "";					//ID of the svg image as defined in the HTML file
+/******************************/
+
+/*adding click-listeners to each svg-button/group*/
 function defineVariables() {
-	var svg = document.getElementById("remote-svg");
+	var svg = document.getElementById(svgID);
 	var svgDoc = svg.contentDocument;
 
 	var buttons = [];
@@ -59,22 +66,15 @@ function defineVariables() {
 	}
 }
 
-
+/*Sending a XHR-request to node-js server when button is pressed*/
 function buttonPressed() {
-	//alert("Button: " + hashmap[this.id] + " was pressed.");
-	console.log(this);
 	var req = new XMLHttpRequest();
-	var baseURL = 'http://pi.sintho:3000/tv/';
-	var fullURL = baseURL + hashmap[this.id];
-	console.log(fullURL);
-	req.open('get', fullURL);
+	var url = 'http://' + hostname + ':' + webserverPort + '/tv/' + hashmap[this.id];
+	req.open('get', url);
 	req.addEventListener('readystatechange', function () {
 		var parsedResponse;
 		if (req.readyState === 4) { // done
-			console.log(req);
 		}
 	});
 	req.send();
-	console.log("sent request");
-
 }

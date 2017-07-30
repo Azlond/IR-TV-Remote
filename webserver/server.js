@@ -1,7 +1,13 @@
-var http = require('http');
-var express = require('express');
-var childProcess = require("child_process");
+/* USER VARIABLES */
 
+var pathToExecutable = "";	//path to where the c-file to be executed is located. Needs to end with '/'
+var executableName = "";	//name of the executable
+var serverPort = 3000;
+
+/*the keys that the remote supports*/
+var possibleKeys = ["KEY_POWER", "KEY_SOURCE", "KEY_MUTE", "KEY_VOLUMEUP", "KEY_VOLUMEDOWN", "KEY_1", "KEY_2", "KEY_3", "KEY_4", "KEY_5", "KEY_6", "KEY_7", "KEY_8", "KEY_9", "KEY_0", "KEY_CHANNELUP", "KEY_CHANNELDOWN", "KEY_UP", "KEY_LEFT", "KEY_DOWN", "KEY_RIGHT", "KEY_OK"]
+
+/*mapping the key names to their binary string*/
 var hashmap = {
 	"KEY_POWER": "100100100",
 	"KEY_SOURCE": "00000010000",
@@ -27,7 +33,13 @@ var hashmap = {
 	"KEY_OK": "000011110"
 }
 
-var possibleKeys = ["KEY_POWER", "KEY_SOURCE", "KEY_MUTE", "KEY_VOLUMEUP", "KEY_VOLUMEDOWN", "KEY_1", "KEY_2", "KEY_3", "KEY_4", "KEY_5", "KEY_6", "KEY_7", "KEY_8", "KEY_9", "KEY_0", "KEY_CHANNELUP", "KEY_CHANNELDOWN", "KEY_UP", "KEY_LEFT", "KEY_DOWN", "KEY_RIGHT", "KEY_OK"]
+
+/*******************************/
+
+
+var http = require('http');
+var express = require('express');
+var childProcess = require("child_process");
 
 var app = express();
 
@@ -39,7 +51,7 @@ app.get('/tv/*', function (req, res) {
 	if (url.indexOf("KEY_") != -1) {
 		var key = url.substring(4);
 		if (possibleKeys.indexOf(key) != -1) {
-			childProcess.exec("sudo ~/test/ir-slinger/light " + hashmap[key]);
+			childProcess.exec("sudo " + pathToExecutable + executableName +  " " + hashmap[key]);
 			res.status(200).send(key);
 		} else {
 			res.status(404).send('Unrecognised API call');
@@ -65,5 +77,5 @@ app.use(function (err, req, res, next) {
 	}
 });
 
-app.listen(3000);
-console.log('App Server running at port 3000');
+app.listen(serverPort);
+console.log('Server running at port ' + serverPort);
