@@ -1,0 +1,5 @@
+{
+    "pathToExecutable": "##PATH",
+    "host": "##IP",
+    "port": "##PORT"
+}
