@@ -1,0 +1,37 @@
+{
+  "name": "ir-tv-remote",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.16.4",
+    "tplink-lightbulb": "^1.4.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "copy-webpack-plugin": "^4.6.0",
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsdoc": "^3.14.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azlond/IR-TV-Remote.git"
+  },
+  "author": "Jan Kaiser",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Azlond/IR-TV-Remote/issues"
+  },
+  "homepage": "https://github.com/Azlond/IR-TV-Remote#readme",
+  "scripts": {
+    "build": "webpack --mode=none --config webpack.config.js"
+  }
+}

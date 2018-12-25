@@ -13,8 +13,8 @@ Dependencies & Recognition
 	* gcc -o filename test.c -lm -lpigpio -pthread -lrt 
 	* to get the codes needed for test.c, run irslinger-codes.py (also by [bschwind](https://github.com/bschwind)).
 
-* [remote.svg](https://github.com/denilsonsa/crx-ss-tv-remote)
-	* the remote.svg image was taken from [denilsonsa](https://github.com/denilsonsa)
+* [remote.svg](https://openclipart.org/detail/27349/remote-control)
+	* the remote.svg image is public domain and was taken from [AshKyd](https://openclipart.org/user-detail/AshKyd)
 
 Tutorial
 --------

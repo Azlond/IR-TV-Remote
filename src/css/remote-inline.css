@@ -1,0 +1,75 @@
+text, tspan {
+    cursor: default;
+}
+
+.body {
+    fill: #eeeeec;
+    stroke: #2e3436;
+    stroke-width: 10px;
+}
+
+.btn-dark {
+    fill: #2e3436;
+}
+
+.btn-light {
+    fill: #888a85;
+}
+
+.btn-grey {
+    fill: #575c5e;
+}
+
+.label-white-path,
+.label-gray {
+    /* Ignoring clicks on labels that are drawn on top of a button. */
+    pointer-events: none;
+}
+
+.transparent-clickable {
+    stroke: none;
+    fill: none;
+    pointer-events: fill;
+}
+
+.label-white-path {
+    fill: none;
+    stroke: #eeeeec;
+    stroke-width: 10px;
+}
+
+.label-white-path-fill-stroke {
+    fill: white;
+    stroke: #eeeeec;
+    stroke-width: 5px;
+}
+
+.label-white-path-filled {
+    fill: white;
+}
+
+.label-gray {
+    fill: #babdb6;
+    font-size: 64px;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    text-anchor: middle;
+    /* Still not supported in Inkscape: https://bugs.launchpad.net/inkscape/+bug/811862 */
+    dominant-baseline: central;
+}
+
+.label-black,
+.label-black-bold {
+    fill: black;
+    font-size: 32px;
+    font-family: "Arial", sans-serif;
+    text-anchor: middle;
+}
+
+.label-black-bold {
+    font-weight: bold;
+}
+
+.larger-label {
+    font-size: 50px;
+}

@@ -1,0 +1,27 @@
+{
+    "KeyBinaryMapping": {
+        "KEY_POWER": "100100100",
+        "KEY_SOURCE": "00000010000",
+        "KEY_MUTE": "100100110",
+        "KEY_VOLUMEUP": "111000000",
+        "KEY_VOLUMEDOWN": "111000010",
+        "KEY_1": "10000000010",
+        "KEY_2": "100000011",
+        "KEY_3": "10000001000",
+        "KEY_4": "100001100",
+        "KEY_5": "100001110",
+        "KEY_6": "100001001",
+        "KEY_7": "10000100000",
+        "KEY_8": "100110000",
+        "KEY_9": "100110010",
+        "KEY_0": "10000000000",
+        "KEY_CHANNELUP": "00100000000",
+        "KEY_CHANNELDOWN": "00100000010",
+        "KEY_UP": "1111100",
+        "KEY_LEFT": "1111110",
+        "KEY_DOWN": "111001000",
+        "KEY_RIGHT": "1111001",
+        "KEY_OK": "000011110"
+    },
+    "Keys": ["KEY_POWER", "KEY_SOURCE", "KEY_MUTE", "KEY_VOLUMEUP", "KEY_VOLUMEDOWN", "KEY_1", "KEY_2", "KEY_3", "KEY_4", "KEY_5", "KEY_6", "KEY_7", "KEY_8", "KEY_9", "KEY_0", "KEY_CHANNELUP", "KEY_CHANNELDOWN", "KEY_UP", "KEY_LEFT", "KEY_DOWN", "KEY_RIGHT", "KEY_OK"]
+}
