@@ -1,0 +1,3 @@
+[submodule "src/pigpio"]
+	path = src/pigpio
+	url = https://github.com/joan2937/pigpio.git
