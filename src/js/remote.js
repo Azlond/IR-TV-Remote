@@ -15,11 +15,12 @@ class TVRemote {
      */
     constructor() {
         const svg = document.getElementById('remote-svg');
-        const svgDoc = svg.contentDocument;
-
-        Keys.forEach((key) => {
-            svgDoc.getElementById(key).addEventListener('click', function (e) {
-                fetch(`http://${__HOST__}:${__PORT__}/api/tv/${this.id}`);
+        svg.addEventListener('load', () => {
+            const svgDoc = svg.contentDocument;
+            Keys.forEach((key) => {
+                svgDoc.getElementById(key).addEventListener('click', function (e) {
+                    fetch(`http://${__HOST__}:${__PORT__}/api/tv/${this.id}`);
+                });
             });
         });
     }
