@@ -13,9 +13,10 @@ app.use(express.static(__dirname));
 app.get('/api/tv/*', (req, res) => {
     const { url } = req;
     if (url.includes('KEY_')) {
-        const key = url.substring(4);
+        const key = url.substring(8);
         if (Keys.includes(key)) {
-            childProcess.exec(`sudo ${config.pathToExecutable} ${KeyBinaryMapping[key]}`);
+            const command = `sudo ${config.pathToExecutable} ${KeyBinaryMapping[key]}`;
+            childProcess.exec(command);
             res.status(200).send(key);
         } else {
             res.status(404).send(`Unrecognised API call - unknown key: ${key}`);
