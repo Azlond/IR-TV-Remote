@@ -17,7 +17,7 @@ module.exports = (env, options) => ({
             __HOST__: `'${config.host}'`,
             __PORT__: config.port
         }),
-        new CopyWebpackPlugin([{
+        new CopyWebpackPlugin({ patterns: [{
             from: './src/css/',
             to: '../css/'
         },
@@ -28,7 +28,7 @@ module.exports = (env, options) => ({
         {
             from: './src/data/',
             to: '../data/'
-        }]),
+        }]}),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: '../remote.html',
