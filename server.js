@@ -1,15 +1,13 @@
-
 const express = require('express');
 const childProcess = require('child_process');
 const path = require('path');
-const { Keys, KeyBinaryMapping } = require('./src/data/RemoteKeys');
-const config = require('./config');
+const { Keys, KeyBinaryMapping } = require('./src/data/RemoteKeys.json');
+const config = require('./config.json');
 
 const app = express();
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// Express route for incoming requests for a customer name
 app.get('/api/tv/*', (req, res) => {
     const { url } = req;
     if (url.includes('KEY_')) {
@@ -26,36 +24,6 @@ app.get('/api/tv/*', (req, res) => {
     }
 });
 
-app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'dist', 'remote.html'));
-});
-
-app.get('/js/*', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'dist', req.originalUrl));
-});
-
-app.get('/css/*', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'dist', req.originalUrl));
-});
-
-app.get('/images/*', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'dist', req.originalUrl));
-});
-
-app.get('/data/*', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'dist', req.originalUrl));
-});
-
-// Express route for any other unrecognised incoming requests
-app.get('/api/*', (req, res) => {
-    res.status(404).send('Unrecognised API call');
-});
-
-app.get('*', (req, res) => {
-    res.status(404).send('Unrecognised path');
-});
-
-// Express route to handle errors
 app.use((err, req, res, next) => {
     if (req.xhr) {
         res.status(500).send('Oops, Something went wrong!');

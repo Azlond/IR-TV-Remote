@@ -2,23 +2,22 @@
   "name": "ir-tv-remote",
   "version": "1.0.0",
   "dependencies": {
-    "base-href-webpack-plugin": "^3.0.1",
-    "body-parser": "^1.20.4",
     "express": "^4.22.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "copy-webpack-plugin": "^6.4.1",
-    "eslint": "^7.21.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^29.2.0",
-    "html-webpack-plugin": "^5.5.0",
-    "webpack": "^5.105.0",
-    "webpack-cli": "^5.0.1"
+    "oxfmt": "^0.43.0",
+    "oxlint": "^1.58.0",
+    "vite": "^8.0.3"
   },
   "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js",
+    "lint": "oxlint src/js",
+    "format": "oxfmt src/js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Azlond/IR-TV-Remote.git"
@@ -28,8 +27,5 @@
   "bugs": {
     "url": "https://github.com/Azlond/IR-TV-Remote/issues"
   },
-  "homepage": "https://github.com/Azlond/IR-TV-Remote#readme",
-  "scripts": {
-    "build": "webpack --mode=none --config webpack.config.js"
-  }
+  "homepage": "https://github.com/Azlond/IR-TV-Remote#readme"
 }
