@@ -3,20 +3,21 @@ import type { Request, Response, NextFunction } from "express";
 import { exec } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import remoteKeys from "./src/data/RemoteKeys.json" with { type: "json" };
+import RemoteKeyBinaryMapping from "./src/data/RemoteKeysBinaryMapping.json" with { type: "json" };
 import config from "./config.json" with { type: "json" };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const { Keys, KeyBinaryMapping } = remoteKeys;
-
 const app = express();
 
 app.use(express.static(join(__dirname, "dist")));
 
+const remoteKeys = Object.keys(RemoteKeyBinaryMapping);
+
 app.post("/api/tv/:key", (req: Request, res: Response) => {
   const key = req.params.key as string;
-  if (Keys.includes(key)) {
-    const command = `sudo ${config.pathToExecutable} ${(KeyBinaryMapping as Record<string, string>)[key]}`;
+
+  if (remoteKeys.includes(key)) {
+    const command = `sudo ${config.pathToExecutable} ${(RemoteKeyBinaryMapping as Record<string, string>)[key]}`;
     exec(command);
     res.status(200).send(key);
   } else {
