@@ -5,18 +5,22 @@
     "express": "^4.22.1"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
     "oxfmt": "^0.43.0",
     "oxlint": "^1.58.0",
+    "typescript": "^6.0.2",
     "vite": "^8.0.3"
   },
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node server.js",
-    "lint": "oxlint src/js",
-    "format": "oxfmt src/js"
+    "start": "node server.ts",
+    "lint": "oxlint src/ts src/data server.ts index.html",
+    "format": "oxfmt src/ts src/data server.ts index.html",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
