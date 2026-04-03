@@ -1,6 +1,13 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: #1a1a1a;
+}
+
 #remote-svg {
-	display: block;
-	margin: auto;
-	height: 850px;
-	width: 400px;
+  display: block;
+  height: 100dvh;
+  width: auto;
+  max-width: 100%;
 }
