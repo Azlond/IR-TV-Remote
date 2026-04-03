@@ -1,4 +1,5 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
+import type { Request, Response, NextFunction } from "express";
 import { exec } from "child_process";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -12,7 +13,7 @@ const app = express();
 
 app.use(express.static(join(__dirname, "dist")));
 
-app.get("/api/tv/*", (req: Request, res: Response) => {
+app.post("/api/tv/*", (req: Request, res: Response) => {
   const { url } = req;
   if (url.includes("KEY_")) {
     const key = url.substring(8);
@@ -36,5 +37,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-app.listen(config.port);
-console.log(`Server running at port ${config.port}`);
+const PORT = process.env.PORT ?? 3000;
+app.listen(PORT);
+console.log(`Server running at port ${PORT}`);
