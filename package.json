@@ -12,6 +12,7 @@
     "typescript": "^6.0.2",
     "vite": "^8.0.3"
   },
+  "type": "module",
   "main": "server.ts",
   "scripts": {
     "dev": "vite",

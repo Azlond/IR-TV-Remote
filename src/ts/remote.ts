@@ -13,7 +13,7 @@ class TVRemote {
       const svgDoc = svg.contentDocument!;
       Keys.forEach((key) => {
         svgDoc.getElementById(key)!.addEventListener("click", function (this: Element) {
-          fetch(`/api/tv/${this.id}`);
+          fetch(`/api/tv/${this.id}`, { method: "POST" });
         });
       });
     });
