@@ -13,19 +13,14 @@ const app = express();
 
 app.use(express.static(join(__dirname, "dist")));
 
-app.post("/api/tv/*", (req: Request, res: Response) => {
-  const { url } = req;
-  if (url.includes("KEY_")) {
-    const key = url.substring(8);
-    if (Keys.includes(key)) {
-      const command = `sudo ${config.pathToExecutable} ${(KeyBinaryMapping as Record<string, string>)[key]}`;
-      exec(command);
-      res.status(200).send(key);
-    } else {
-      res.status(404).send(`Unrecognised API call - unknown key: ${key}`);
-    }
+app.post("/api/tv/:key", (req: Request, res: Response) => {
+  const key = req.params.key as string;
+  if (Keys.includes(key)) {
+    const command = `sudo ${config.pathToExecutable} ${(KeyBinaryMapping as Record<string, string>)[key]}`;
+    exec(command);
+    res.status(200).send(key);
   } else {
-    res.status(404).send("Unrecognised API call");
+    res.status(404).send(`Unrecognised key: ${key}`);
   }
 });
 
